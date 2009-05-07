@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: Annoy [Annoy: Like your annoying friend that asks you questions all the time.]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <div class='name'>
+          <span class='type'>Class</span>
+          Annoy
+        </div>
+        <ol class='paths'>
+          <li>
+            <a href="../files/lib/annoy_rb.html">lib/annoy.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong>Object</strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <h1><a href="Annoy.html">Annoy</a></h1>
+            <p>
+            Like your annoying friend that asks you questions all the time.
+            </p>
+            <p>
+            Rudy uses <a href="Annoy.html">Annoy</a> to present the user with a simple
+            question before continuing with a destructive action.
+            </p>
+          </div>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000010">are_you_sure?</a></li>
+              <li><a href="#M000009">challenge?</a></li>
+              <li><a href="#M000002">disable_skip</a></li>
+              <li><a href="#M000001">enable_skip</a></li>
+              <li><a href="#M000004">new</a></li>
+              <li><a href="#M000008">numeric_question</a></li>
+              <li><a href="#M000014">pose_question</a></li>
+              <li><a href="#M000011">proceed?</a></li>
+              <li><a href="#M000006">question</a></li>
+              <li><a href="#M000003">skip?</a></li>
+              <li><a href="#M000007">string_question</a></li>
+              <li><a href="#M000015">timed_display</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000012">challenge?</a></li>
+              <li><a href="#M000013">pose_question</a></li>
+              <li><a href="#M000005">question</a></li>
+            </ol>
+          </div>
+          <div id='section'>
+            <div id='class-list'>
+              <h2>Classes and Modules</h2>
+              Class <a href="Annoy/GiveUp.html" class="link">Annoy::GiveUp</a><br />
+            </div>
+            <div id='attribute-list'>
+              <h2 class='section-bar'>Attributes</h2>
+              <div class='name-list'>
+                <table>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>answer</td>
+                    <td class='context-item-value'>[RW]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>factor</td>
+                    <td class='context-item-value'>[RW]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>flavor</td>
+                    <td class='context-item-value'>[RW]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>period</td>
+                    <td class='context-item-value'>[RW]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>system</td>
+                    <td class='context-item-value'>[RW]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>writer</td>
+                    <td class='context-item-value'>[RW]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000010'>
+                <a name='M000010'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>are_you_sure?</span>
+                  <span class='arguments'>(factor=:medium, flavor=:rand, writer=STDOUT)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Runs a challenge with the message, &#8220;Are you sure?&#8221; See: <a
+                  href="Annoy.html#M000009">Annoy.challenge?</a>
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000010-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000010-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 154</span>&#x000A;154:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">are_you_sure?</span>(<span class="ruby-identifier">factor</span>=<span class="ruby-identifier">:medium</span>, <span class="ruby-identifier">flavor</span>=<span class="ruby-identifier">:rand</span>, <span class="ruby-identifier">writer</span>=<span class="ruby-constant">STDOUT</span>)&#x000A;155:     <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">challenge?</span>(<span class="ruby-value str">&quot;Are you sure?&quot;</span>, <span class="ruby-identifier">factor</span>, <span class="ruby-identifier">flavor</span>, <span class="ruby-identifier">writer</span>)&#x000A;156:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000009'>
+                <a name='M000009'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>challenge?</span>
+                  <span class='arguments'>(msg=&quot;Please confirm.&quot;, factor=:medium, flavor=:rand, writer=STDOUT, period=nil)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Prints a question to <tt>writer</tt> and waits for a response on STDIN. It
+                  checks whether STDIN is connected a tty so it doesn&#8217;t block on gets
+                  when there&#8217;s no human around to annoy. It will return <b>TRUE</b>
+                  when STDIN is NOT connected to a tty (when STDIN.tty? returns false).
+                  </p>
+                  <ul>
+                  <li><tt>msg</tt> The message to print. Default: &#8220;Please confirm.&#8220;
+                  
+                  </li>
+                  </ul>
+                  <p>
+                  Returns true when the answer is correct, otherwise false.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000009-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000009-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 113</span>&#x000A;113:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">challenge?</span>(<span class="ruby-identifier">msg</span>=<span class="ruby-value str">&quot;Please confirm.&quot;</span>, <span class="ruby-identifier">factor</span>=<span class="ruby-identifier">:medium</span>, <span class="ruby-identifier">flavor</span>=<span class="ruby-identifier">:rand</span>, <span class="ruby-identifier">writer</span>=<span class="ruby-constant">STDOUT</span>, <span class="ruby-identifier">period</span>=<span class="ruby-keyword kw">nil</span>)&#x000A;114:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">tty?</span> <span class="ruby-comment cmt"># Humans only!</span>&#x000A;115:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">skip?</span>&#x000A;116:     <span class="ruby-keyword kw">begin</span>&#x000A;117:       <span class="ruby-identifier">success</span> = <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-identifier">timeout</span>(<span class="ruby-identifier">period</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@@period</span>) <span class="ruby-keyword kw">do</span>&#x000A;118:         <span class="ruby-identifier">flavor</span> = <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">get_flavor</span>(<span class="ruby-identifier">flavor</span>)&#x000A;119:         <span class="ruby-identifier">question</span>, <span class="ruby-identifier">answer</span> = <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">question</span>(<span class="ruby-identifier">factor</span>, <span class="ruby-identifier">flavor</span>)&#x000A;120:         <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;#{msg} To continue, #{Annoy.verb(flavor)} #{question}: &quot;</span>&#x000A;121:         <span class="ruby-comment cmt">#writer.print msg</span>&#x000A;122:         <span class="ruby-comment cmt">#if ![:medium, :high, :insane].member?(factor) &amp;&amp; flavor == :numeric</span>&#x000A;123:         <span class="ruby-comment cmt">#writer.print &quot;(#{answer}) &quot; </span>&#x000A;124:         <span class="ruby-comment cmt">#writer.flush</span>&#x000A;125:         <span class="ruby-comment cmt">#end</span>&#x000A;126:         <span class="ruby-comment cmt">#response = Annoy.get_response(writer)</span>&#x000A;127:                 &#x000A;128:         <span class="ruby-identifier">highline</span> = <span class="ruby-constant">HighLine</span>.<span class="ruby-identifier">new</span> &#x000A;129:         <span class="ruby-identifier">response</span> = <span class="ruby-identifier">highline</span>.<span class="ruby-identifier">ask</span>(<span class="ruby-identifier">msg</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span> &#x000A;130:           <span class="ruby-identifier">q</span>.<span class="ruby-identifier">echo</span> = <span class="ruby-value str">'*'</span>             <span class="ruby-comment cmt"># Don't display response</span>&#x000A;131:           <span class="ruby-identifier">q</span>.<span class="ruby-identifier">overwrite</span> = <span class="ruby-keyword kw">true</span>       <span class="ruby-comment cmt"># Erase the question afterwards</span>&#x000A;132:           <span class="ruby-identifier">q</span>.<span class="ruby-identifier">whitespace</span> = <span class="ruby-identifier">:strip</span>    <span class="ruby-comment cmt"># Remove whitespace from the response</span>&#x000A;133:           <span class="ruby-identifier">q</span>.<span class="ruby-identifier">answer_type</span> = <span class="ruby-constant">Integer</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">flavor</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:numeric</span>&#x000A;134:         }&#x000A;135:         &#x000A;136:         <span class="ruby-identifier">ret</span> = (<span class="ruby-identifier">response</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">answer</span>)&#x000A;137:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Incorrect&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">ret</span>&#x000A;138:         <span class="ruby-identifier">ret</span>&#x000A;139:       <span class="ruby-keyword kw">end</span>&#x000A;140:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Interrupt</span>&#x000A;141:       <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">$/</span>, <span class="ruby-value str">&quot;Giving up!&quot;</span>&#x000A;142:       <span class="ruby-keyword kw">false</span>&#x000A;143:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Annoy</span><span class="ruby-operator">::</span><span class="ruby-constant">GiveUp</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>&#x000A;144:       <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">$/</span>, <span class="ruby-value str">&quot;Giving up!&quot;</span>&#x000A;145:       <span class="ruby-keyword kw">false</span>&#x000A;146:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>&#x000A;147:       <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">$/</span>, <span class="ruby-value str">&quot;Times up!&quot;</span>&#x000A;148:       <span class="ruby-keyword kw">false</span>&#x000A;149:     <span class="ruby-keyword kw">end</span>&#x000A;150:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000002'>
+                <a name='M000002'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>disable_skip</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Tells annoy to prompt for a response.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000002-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000002-source'>    <span class="ruby-comment cmt"># File lib/annoy.rb, line 54</span>&#x000A;54:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">disable_skip</span>; <span class="ruby-ivar">@@skip</span> = <span class="ruby-keyword kw">false</span>; <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000001'>
+                <a name='M000001'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>enable_skip</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Calling this method tells <a href="Annoy.html">Annoy</a> to not prompt for
+                  a response. All questions will return true.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000001-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000001-source'>    <span class="ruby-comment cmt"># File lib/annoy.rb, line 52</span>&#x000A;52:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">enable_skip</span>; <span class="ruby-ivar">@@skip</span> = <span class="ruby-keyword kw">true</span>; <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000004'>
+                <a name='M000004'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>new</span>
+                  <span class='arguments'>(opts={:factor=&gt;:medium, :flavor=&gt;:rand, :writer=&gt;STDOUT, :period=&gt;nil})</span>
+                </div>
+                <div class='description'>
+                  <ul>
+                  <li><tt>factor</tt> annoyance factor, one of :low (default), :medium, :high,
+                  :insane
+                  
+                  </li>
+                  <li><tt>flavor</tt> annoyance flavor, one of :rand (default), :numeric, string
+                  
+                  </li>
+                  <li><tt>writer</tt> an IO object to write to. Default: STDERR
+                  
+                  </li>
+                  <li><tt>period</tt> the amount of time to wait in seconds. Default: 60
+                  
+                  </li>
+                  </ul>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000004-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000004-source'>    <span class="ruby-comment cmt"># File lib/annoy.rb, line 62</span>&#x000A;62:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">opts</span>={<span class="ruby-identifier">:factor=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">:medium</span>, <span class="ruby-identifier">:flavor=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">:rand</span>, <span class="ruby-identifier">:writer=</span><span class="ruby-operator">&gt;</span><span class="ruby-constant">STDOUT</span>, <span class="ruby-identifier">:period=</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword kw">nil</span>})&#x000A;63:     <span class="ruby-ivar">@factor</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:factor</span>]&#x000A;64:     <span class="ruby-ivar">@flavor</span> = <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">get_flavor</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:flavor</span>])&#x000A;65:     <span class="ruby-ivar">@writer</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:writer</span>]&#x000A;66:     <span class="ruby-ivar">@period</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:period</span>] <span class="ruby-operator">||</span> <span class="ruby-ivar">@@period</span>&#x000A;67:     <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-node">&quot;#{@flavor}_question&quot;</span>)&#x000A;68:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Hey, hey, hey. I don't know that flavor! (#{@flavor})&quot;</span> &#x000A;69:     <span class="ruby-keyword kw">end</span>&#x000A;70:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000008'>
+                <a name='M000008'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>numeric_question</span>
+                  <span class='arguments'>(factor=:medium)</span>
+                </div>
+                <div class='description'>
+                  <ul>
+                  <li>Generates a rudimentary numeric equation in the form: (Integer OPERATOR
+                  Integer).
+                  
+                  </li>
+                  <li>Returns [equation, answer]
+                  
+                  </li>
+                  </ul>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000008-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000008-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 95</span>&#x000A; 95:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">numeric_question</span>(<span class="ruby-identifier">factor</span>=<span class="ruby-identifier">:medium</span>)&#x000A; 96:     <span class="ruby-identifier">equation</span> = <span class="ruby-identifier">answer</span> = <span class="ruby-value">0</span>&#x000A; 97:     <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">answer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">10</span>&#x000A; 98:       <span class="ruby-identifier">vals</span> = [<span class="ruby-identifier">rand</span>(<span class="ruby-ivar">@@randsize</span>[<span class="ruby-identifier">factor</span>])<span class="ruby-operator">+</span><span class="ruby-value">1</span>, &#x000A; 99:               <span class="ruby-ivar">@@operators</span>[<span class="ruby-identifier">factor</span>][ <span class="ruby-identifier">rand</span>(<span class="ruby-ivar">@@operators</span>[<span class="ruby-identifier">factor</span>].<span class="ruby-identifier">size</span>) ],&#x000A;100:               <span class="ruby-identifier">rand</span>(<span class="ruby-ivar">@@randsize</span>[<span class="ruby-identifier">factor</span>])<span class="ruby-operator">+</span><span class="ruby-value">1</span> ]&#x000A;101:       <span class="ruby-identifier">equation</span> = <span class="ruby-value str">&quot;(%d %s %d)&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">vals</span>&#x000A;102:       <span class="ruby-identifier">answer</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">equation</span>)&#x000A;103:     <span class="ruby-keyword kw">end</span>&#x000A;104:     [<span class="ruby-identifier">equation</span>, <span class="ruby-identifier">answer</span>]&#x000A;105:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000014'>
+                <a name='M000014'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>pose_question</span>
+                  <span class='arguments'>(msg, regexp, writer=STDOUT, period=nil)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Prints a question to writer and waits for a response on STDIN. It checks
+                  whether STDIN is connected a tty so it doesn&#8217;t block on gets. when
+                  there&#8217;s no human around to annoy. It will return <b>TRUE</b> when
+                  STDIN is NOT connected to a tty.
+                  </p>
+                  <ul>
+                  <li><tt>msg</tt> The question to pose to the user
+                  
+                  </li>
+                  <li><tt>regexp</tt> The regular expression to match the answer.
+                  
+                  </li>
+                  </ul>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000014-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000014-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 182</span>&#x000A;182:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">pose_question</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">regexp</span>, <span class="ruby-identifier">writer</span>=<span class="ruby-constant">STDOUT</span>, <span class="ruby-identifier">period</span>=<span class="ruby-keyword kw">nil</span>)&#x000A;183:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">tty?</span> <span class="ruby-comment cmt"># Only ask a question if there's a human</span>&#x000A;184:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">skip?</span>&#x000A;185:     <span class="ruby-keyword kw">begin</span>&#x000A;186:       <span class="ruby-identifier">success</span> = <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-identifier">timeout</span>(<span class="ruby-identifier">period</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@@period</span>) <span class="ruby-keyword kw">do</span>&#x000A;187:         <span class="ruby-identifier">regexp</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">regexp</span>&#x000A;188:         <span class="ruby-identifier">highline</span> = <span class="ruby-constant">HighLine</span>.<span class="ruby-identifier">new</span> &#x000A;189:         <span class="ruby-identifier">response</span> = <span class="ruby-identifier">highline</span>.<span class="ruby-identifier">ask</span>(<span class="ruby-identifier">msg</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span> &#x000A;190:           <span class="ruby-identifier">q</span>.<span class="ruby-identifier">echo</span> = <span class="ruby-value str">'*'</span>             <span class="ruby-comment cmt"># Don't display response</span>&#x000A;191:           <span class="ruby-identifier">q</span>.<span class="ruby-identifier">overwrite</span> = <span class="ruby-keyword kw">true</span>       <span class="ruby-comment cmt"># Erase the question afterwards</span>&#x000A;192:           <span class="ruby-identifier">q</span>.<span class="ruby-identifier">whitespace</span> = <span class="ruby-identifier">:strip</span>    <span class="ruby-comment cmt"># Remove whitespace from the response</span>&#x000A;193:         }&#x000A;194:         <span class="ruby-identifier">regexp</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">response</span>)&#x000A;195:       <span class="ruby-keyword kw">end</span>&#x000A;196:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>&#x000A;197:       <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">$/</span>, <span class="ruby-value str">&quot;Times up!&quot;</span>&#x000A;198:       <span class="ruby-keyword kw">false</span>&#x000A;199:     <span class="ruby-keyword kw">end</span>&#x000A;200:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000011'>
+                <a name='M000011'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>proceed?</span>
+                  <span class='arguments'>(factor=:medium, flavor=:rand, writer=STDOUT)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Runs a challenge with the message, &#8220;Proceed?&#8221; See: <a
+                  href="Annoy.html#M000009">Annoy.challenge?</a>
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000011-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000011-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 160</span>&#x000A;160:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">proceed?</span>(<span class="ruby-identifier">factor</span>=<span class="ruby-identifier">:medium</span>, <span class="ruby-identifier">flavor</span>=<span class="ruby-identifier">:rand</span>, <span class="ruby-identifier">writer</span>=<span class="ruby-constant">STDOUT</span>)&#x000A;161:     <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">challenge?</span>(<span class="ruby-value str">&quot;Proceed?&quot;</span>, <span class="ruby-identifier">factor</span>, <span class="ruby-identifier">flavor</span>, <span class="ruby-identifier">writer</span>)&#x000A;162:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000006'>
+                <a name='M000006'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>question</span>
+                  <span class='arguments'>(factor=:medium, flavor=:rand)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  A wrapper for <a href="Annoy.html#M000007">string_question</a> and
+                  numberic_question
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000006-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000006-source'>    <span class="ruby-comment cmt"># File lib/annoy.rb, line 80</span>&#x000A;80:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">question</span>(<span class="ruby-identifier">factor</span>=<span class="ruby-identifier">:medium</span>, <span class="ruby-identifier">flavor</span>=<span class="ruby-identifier">:rand</span>)&#x000A;81:     <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Come on, you ruined the flavor!&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">flavor</span>&#x000A;82:     <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{flavor}_question&quot;</span>, <span class="ruby-identifier">factor</span>)&#x000A;83:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000003'>
+                <a name='M000003'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>skip?</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Returns true of <a href="Annoy.html">Annoy</a> is in skip mode
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000003-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000003-source'>    <span class="ruby-comment cmt"># File lib/annoy.rb, line 56</span>&#x000A;56:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">skip?</span>; <span class="ruby-ivar">@@skip</span>; <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000007'>
+                <a name='M000007'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>string_question</span>
+                  <span class='arguments'>(factor=:medium)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Generates a random string
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000007-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000007-source'>    <span class="ruby-comment cmt"># File lib/annoy.rb, line 86</span>&#x000A;86:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">string_question</span>(<span class="ruby-identifier">factor</span>=<span class="ruby-identifier">:medium</span>)&#x000A;87:     <span class="ruby-comment cmt"># Strings don't need to be evaluated so the answer is the</span>&#x000A;88:     <span class="ruby-comment cmt"># same as the question.</span>&#x000A;89:     <span class="ruby-identifier">str</span> = <span class="ruby-identifier">strand</span> <span class="ruby-ivar">@@strlen</span>[<span class="ruby-identifier">factor</span>]&#x000A;90:     [<span class="ruby-identifier">str</span>,<span class="ruby-identifier">str</span>]&#x000A;91:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000015'>
+                <a name='M000015'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>timed_display</span>
+                  <span class='arguments'>(msg, writer, period=nil)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000015-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000015-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 203</span>&#x000A;203:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">timed_display</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">period</span>=<span class="ruby-keyword kw">nil</span>)&#x000A;204:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">tty?</span> <span class="ruby-comment cmt"># Only ask a question if there's a human</span>&#x000A;205:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">skip?</span>&#x000A;206:       <span class="ruby-comment cmt">#writer.puts msg </span>&#x000A;207:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>&#x000A;208:     <span class="ruby-keyword kw">end</span>&#x000A;209:     <span class="ruby-keyword kw">begin</span>&#x000A;210:       <span class="ruby-identifier">period</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@@period</span>&#x000A;211:       <span class="ruby-identifier">success</span> = <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-identifier">timeout</span>(<span class="ruby-identifier">period</span>) <span class="ruby-keyword kw">do</span>&#x000A;212:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Message will display for #{period} seconds&quot;</span>&#x000A;213:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">print</span> <span class="ruby-identifier">msg</span>&#x000A;214:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">flush</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:flush</span>)&#x000A;215:         <span class="ruby-identifier">sleep</span> <span class="ruby-identifier">period</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>&#x000A;216:       <span class="ruby-keyword kw">end</span>&#x000A;217:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>&#x000A;218:       <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;\r&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">' '</span><span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>.<span class="ruby-identifier">size</span>&#x000A;219:     <span class="ruby-keyword kw">end</span>&#x000A;220:     &#x000A;221:     <span class="ruby-keyword kw">true</span>&#x000A;222:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000012'>
+                <a name='M000012'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>challenge?</span>
+                  <span class='arguments'>(msg=&quot;Please confirm.&quot;)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  See: <a href="Annoy.html#M000009">Annoy.challenge?</a> Uses the value of
+                  @flavor, @factor, and @writer
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000012-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000012-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 166</span>&#x000A;166:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">challenge?</span>(<span class="ruby-identifier">msg</span>=<span class="ruby-value str">&quot;Please confirm.&quot;</span>)&#x000A;167:     <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">challenge?</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-ivar">@factor</span>, <span class="ruby-ivar">@flavor</span>, <span class="ruby-ivar">@writer</span>)&#x000A;168:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000013'>
+                <a name='M000013'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>pose_question</span>
+                  <span class='arguments'>(msg, regexp)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  See: <a href="Annoy.html#M000013">Annoy.pose_question</a> Uses the value of
+                  @writer
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000013-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000013-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 172</span>&#x000A;172:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pose_question</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">regexp</span>)&#x000A;173:     <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">pose_question</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">regexp</span>, <span class="ruby-ivar">@writer</span>)&#x000A;174:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000005'>
+                <a name='M000005'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>question</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Generates and returns a question. The correct response is available as
+                  +@answer+.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000005-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000005-source'>    <span class="ruby-comment cmt"># File lib/annoy.rb, line 74</span>&#x000A;74:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">question</span>&#x000A;75:     <span class="ruby-identifier">q</span>, <span class="ruby-ivar">@answer</span> =<span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">question</span>(<span class="ruby-ivar">@factor</span>, <span class="ruby-ivar">@flavor</span>)&#x000A;76:     <span class="ruby-identifier">q</span>&#x000A;77:   <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>
