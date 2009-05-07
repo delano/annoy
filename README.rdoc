@@ -1,0 +1,23 @@
+= Annoy - v0.5
+
+All your system-independent infoz in one handy class. 
+
+== Installation
+
+Via Rubygems, one of:
+
+    $ sudo gem install annoy
+    $ sudo gem install delano-annoy --source http://gems.github.com/
+
+or via download:
+* annoy-latest.tar.gz[http://github.com/delano/annoy/tarball/latest]
+* annoy-latest.zip[http://github.com/delano/annoy/zipball/latest]
+ 
+
+== Credits
+
+* Delano Mandelbaum (delano@solutious.com)
+
+== License
+
+See: LICENSE.txt
