@@ -198,8 +198,47 @@ class Annoy
       false
     end
   end
- 
- 
+  
+  # Get a response from the user. Returns the string as typed by the user
+  # with extraneous whitespace removed. 
+  #
+  # * +msg+ (required) text to display to user
+  # * +echo+ (optional) character to display as user types. Used for hiding passwords. 
+  # * +period+ (optional) amount of time to wait. 
+  #
+  # NOTE: Annoy uses Highline to get user responses. If +msg+ ends with a space
+  # character, Highline will not print a new line. If there is no space character
+  # Highline will print a new line. 
+  # 
+  #     Annoy.get_user_input("Password?")   # => Password?
+  #                                         # => 'user types here'
+  #
+  #     Annoy.get_user_input("Password? ")  # => Password? 'user types here'
+  #
+  def Annoy.get_user_input(msg, echo=nil, period=nil)
+    return unless STDIN.tty? # Only ask a question if there's a human
+    return if Annoy.skip?
+    response = nil
+    begin
+      success = Timeout::timeout(period || @@period) do
+        highline = HighLine.new 
+        response = highline.ask(msg) { |q| 
+          unless echo.nil?        
+            q.overwrite = true     # Erase the question afterwards
+            q.echo = echo          # Don't display response
+          end
+          q.whitespace = :strip    # Remove whitespace from the response
+        }
+      end
+    rescue Timeout::Error => ex
+      writer.puts $/, "Times up!"
+    end
+    response
+  end
+  
+  # Display +msg+ for +period+ seconds. 
+  # NOTE: +msg+ should be a short, single line. This is a naive approach which 
+  # simply overwrites the current line. 
   def Annoy.timed_display(msg, writer, period=nil)
     return true unless STDIN.tty? # Only ask a question if there's a human
     if Annoy.skip?

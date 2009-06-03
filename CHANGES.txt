@@ -1,7 +1,12 @@
 ANNOY, CHANGES
 
 
-#### 0.5 (2009-05-07) ###############################
+#### 0.5.1 (2009-06-03) ###############################
+
+* ADDED: get_user_input method. 
+
+
+#### 0.5.0 (2009-05-07) ###############################
 
 * First public release. See commit history for solutious-rudy. 
 
