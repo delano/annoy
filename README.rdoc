@@ -1,6 +1,6 @@
 = Annoy - v0.5
 
-All your system-independent infoz in one handy class. 
+Like your annoying friend that asks you questions all the time.
 
 == Installation
 
@@ -12,7 +12,11 @@ Via Rubygems, one of:
 or via download:
 * annoy-latest.tar.gz[http://github.com/delano/annoy/tarball/latest]
 * annoy-latest.zip[http://github.com/delano/annoy/zipball/latest]
- 
+
+== More Info
+
+* GitHub[http://github.com/delano/annoy]
+* Rdocs[http://delano.github.com/annoy]
 
 == Credits
 
