@@ -59,6 +59,7 @@
               <li><a href="#M000009">challenge?</a></li>
               <li><a href="#M000002">disable_skip</a></li>
               <li><a href="#M000001">enable_skip</a></li>
+              <li><a href="#M000015">get_user_input</a></li>
               <li><a href="#M000004">new</a></li>
               <li><a href="#M000008">numeric_question</a></li>
               <li><a href="#M000014">pose_question</a></li>
@@ -66,7 +67,7 @@
               <li><a href="#M000006">question</a></li>
               <li><a href="#M000003">skip?</a></li>
               <li><a href="#M000007">string_question</a></li>
-              <li><a href="#M000015">timed_display</a></li>
+              <li><a href="#M000016">timed_display</a></li>
             </ol>
             <h3>public instance</h3>
             <ol>
@@ -202,6 +203,43 @@
                     [show source]
                   </a>
                   <pre id='M000001-source'>    <span class="ruby-comment cmt"># File lib/annoy.rb, line 52</span>&#x000A;52:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">enable_skip</span>; <span class="ruby-ivar">@@skip</span> = <span class="ruby-keyword kw">true</span>; <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000015'>
+                <a name='M000015'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>get_user_input</span>
+                  <span class='arguments'>(msg, echo=nil, period=nil)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Get a response from the user. Returns the string as typed by the user with
+                  extraneous whitespace removed.
+                  </p>
+                  <ul>
+                  <li><tt>msg</tt> (required) text to display to user
+                  
+                  </li>
+                  <li><tt>echo</tt> (optional) character to display as user types. Used for
+                  hiding passwords.
+                  
+                  </li>
+                  <li><tt>period</tt> (optional) amount of time to wait.
+                  
+                  </li>
+                  </ul>
+                  <p>
+                  NOTE: <a href="Annoy.html">Annoy</a> uses Highline to get user responses.
+                  If <tt>msg</tt> ends with a space character, Highline will not print a new
+                  line. If there is no space character Highline will print a new line.
+                  </p>
+                  <pre>Annoy.get_user_input(&quot;Password?&quot;)   # =&gt; Password?&#x000A;                                    # =&gt; 'user types here'&#x000A;&#x000A;Annoy.get_user_input(&quot;Password? &quot;)  # =&gt; Password? 'user types here'</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000015-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000015-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 218</span>&#x000A;218:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">get_user_input</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">echo</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">period</span>=<span class="ruby-keyword kw">nil</span>)&#x000A;219:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">tty?</span> <span class="ruby-comment cmt"># Only ask a question if there's a human</span>&#x000A;220:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">skip?</span>&#x000A;221:     <span class="ruby-identifier">response</span> = <span class="ruby-keyword kw">nil</span>&#x000A;222:     <span class="ruby-keyword kw">begin</span>&#x000A;223:       <span class="ruby-identifier">success</span> = <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-identifier">timeout</span>(<span class="ruby-identifier">period</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@@period</span>) <span class="ruby-keyword kw">do</span>&#x000A;224:         <span class="ruby-identifier">highline</span> = <span class="ruby-constant">HighLine</span>.<span class="ruby-identifier">new</span> &#x000A;225:         <span class="ruby-identifier">response</span> = <span class="ruby-identifier">highline</span>.<span class="ruby-identifier">ask</span>(<span class="ruby-identifier">msg</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span> &#x000A;226:           <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">echo</span>.<span class="ruby-identifier">nil?</span>        &#x000A;227:             <span class="ruby-identifier">q</span>.<span class="ruby-identifier">overwrite</span> = <span class="ruby-keyword kw">true</span>     <span class="ruby-comment cmt"># Erase the question afterwards</span>&#x000A;228:             <span class="ruby-identifier">q</span>.<span class="ruby-identifier">echo</span> = <span class="ruby-identifier">echo</span>          <span class="ruby-comment cmt"># Don't display response</span>&#x000A;229:           <span class="ruby-keyword kw">end</span>&#x000A;230:           <span class="ruby-identifier">q</span>.<span class="ruby-identifier">whitespace</span> = <span class="ruby-identifier">:strip</span>    <span class="ruby-comment cmt"># Remove whitespace from the response</span>&#x000A;231:         }&#x000A;232:       <span class="ruby-keyword kw">end</span>&#x000A;233:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>&#x000A;234:       <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">$/</span>, <span class="ruby-value str">&quot;Times up!&quot;</span>&#x000A;235:     <span class="ruby-keyword kw">end</span>&#x000A;236:     <span class="ruby-identifier">response</span>&#x000A;237:   <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <div class='public-class method' id='method-M000004'>
@@ -361,17 +399,24 @@
                   <pre id='M000007-source'>    <span class="ruby-comment cmt"># File lib/annoy.rb, line 86</span>&#x000A;86:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">string_question</span>(<span class="ruby-identifier">factor</span>=<span class="ruby-identifier">:medium</span>)&#x000A;87:     <span class="ruby-comment cmt"># Strings don't need to be evaluated so the answer is the</span>&#x000A;88:     <span class="ruby-comment cmt"># same as the question.</span>&#x000A;89:     <span class="ruby-identifier">str</span> = <span class="ruby-identifier">strand</span> <span class="ruby-ivar">@@strlen</span>[<span class="ruby-identifier">factor</span>]&#x000A;90:     [<span class="ruby-identifier">str</span>,<span class="ruby-identifier">str</span>]&#x000A;91:   <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-class method' id='method-M000015'>
-                <a name='M000015'>      </a>
+              <div class='public-class method' id='method-M000016'>
+                <a name='M000016'>      </a>
                 <div class='synopsis'>
                   <span class='name'>timed_display</span>
                   <span class='arguments'>(msg, writer, period=nil)</span>
                 </div>
+                <div class='description'>
+                  <p>
+                  Display <tt>msg</tt> for <tt>period</tt> seconds. NOTE: <tt>msg</tt> should
+                  be a short, single line. This is a naive approach which simply overwrites
+                  the current line.
+                  </p>
+                </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000015-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000016-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000015-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 203</span>&#x000A;203:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">timed_display</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">period</span>=<span class="ruby-keyword kw">nil</span>)&#x000A;204:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">tty?</span> <span class="ruby-comment cmt"># Only ask a question if there's a human</span>&#x000A;205:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">skip?</span>&#x000A;206:       <span class="ruby-comment cmt">#writer.puts msg </span>&#x000A;207:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>&#x000A;208:     <span class="ruby-keyword kw">end</span>&#x000A;209:     <span class="ruby-keyword kw">begin</span>&#x000A;210:       <span class="ruby-identifier">period</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@@period</span>&#x000A;211:       <span class="ruby-identifier">success</span> = <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-identifier">timeout</span>(<span class="ruby-identifier">period</span>) <span class="ruby-keyword kw">do</span>&#x000A;212:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Message will display for #{period} seconds&quot;</span>&#x000A;213:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">print</span> <span class="ruby-identifier">msg</span>&#x000A;214:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">flush</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:flush</span>)&#x000A;215:         <span class="ruby-identifier">sleep</span> <span class="ruby-identifier">period</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>&#x000A;216:       <span class="ruby-keyword kw">end</span>&#x000A;217:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>&#x000A;218:       <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;\r&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">' '</span><span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>.<span class="ruby-identifier">size</span>&#x000A;219:     <span class="ruby-keyword kw">end</span>&#x000A;220:     &#x000A;221:     <span class="ruby-keyword kw">true</span>&#x000A;222:   <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000016-source'>     <span class="ruby-comment cmt"># File lib/annoy.rb, line 242</span>&#x000A;242:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">timed_display</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">writer</span>, <span class="ruby-identifier">period</span>=<span class="ruby-keyword kw">nil</span>)&#x000A;243:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">tty?</span> <span class="ruby-comment cmt"># Only ask a question if there's a human</span>&#x000A;244:     <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Annoy</span>.<span class="ruby-identifier">skip?</span>&#x000A;245:       <span class="ruby-comment cmt">#writer.puts msg </span>&#x000A;246:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>&#x000A;247:     <span class="ruby-keyword kw">end</span>&#x000A;248:     <span class="ruby-keyword kw">begin</span>&#x000A;249:       <span class="ruby-identifier">period</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@@period</span>&#x000A;250:       <span class="ruby-identifier">success</span> = <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-identifier">timeout</span>(<span class="ruby-identifier">period</span>) <span class="ruby-keyword kw">do</span>&#x000A;251:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Message will display for #{period} seconds&quot;</span>&#x000A;252:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">print</span> <span class="ruby-identifier">msg</span>&#x000A;253:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">flush</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:flush</span>)&#x000A;254:         <span class="ruby-identifier">sleep</span> <span class="ruby-identifier">period</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>&#x000A;255:       <span class="ruby-keyword kw">end</span>&#x000A;256:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>&#x000A;257:       <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;\r&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">' '</span><span class="ruby-operator">*</span><span class="ruby-identifier">msg</span>.<span class="ruby-identifier">size</span>&#x000A;258:     <span class="ruby-keyword kw">end</span>&#x000A;259:     &#x000A;260:     <span class="ruby-keyword kw">true</span>&#x000A;261:   <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <h2>Public instance methods</h2>
