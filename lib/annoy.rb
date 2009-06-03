@@ -231,7 +231,7 @@ class Annoy
         }
       end
     rescue Timeout::Error => ex
-      writer.puts $/, "Times up!"
+      puts $/, "Times up!"
     end
     response
   end
