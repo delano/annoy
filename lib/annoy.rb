@@ -176,12 +176,13 @@ class Annoy
   # Prints a question to writer and waits for a response on STDIN. 
   # It checks whether STDIN is connected a tty so it doesn't block on gets.
   # when there's no human around to annoy. It will return <b>TRUE</b> when
-  # STDIN is NOT connected to a tty.
+  # STDIN is NOT connected to a tty or if +writer+ is nil.
   # * +msg+ The question to pose to the user
   # * +regexp+ The regular expression to match the answer. 
   def Annoy.pose_question(msg, regexp, writer=STDOUT, period=nil)
     return true unless STDIN.tty? # Only ask a question if there's a human
     return true if Annoy.skip?
+    return true if writer.nil?
     begin
       success = Timeout::timeout(period || @@period) do
         regexp &&= Regexp.new regexp
@@ -243,6 +244,10 @@ class Annoy
     return true unless STDIN.tty? # Only ask a question if there's a human
     if Annoy.skip?
       #writer.puts msg 
+      return true
+    end
+    if writer.nil?
+      sleep period+1
       return true
     end
     begin
