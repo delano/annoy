@@ -1,7 +1,7 @@
 @spec = Gem::Specification.new do |s|
 	s.name = "annoy"
   s.rubyforge_project = "annoy"
-	s.version = "0.5.3"
+	s.version = "0.5.4"
 	s.summary = "Annoy: Like your annoying friend that asks you questions all the time."
 	s.description = s.summary
   s.author = "Delano Mandelbaum"
@@ -40,17 +40,4 @@
   s.require_paths = %w[lib]
   s.rubygems_version = '1.3.0'
 
-  if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
-    s.specification_version = 2
- 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<RedCloth>, [">= 4.0.4"])
-    else
-      s.add_dependency(%q<RedCloth>, [">= 4.0.4"])
-    end
-  else
-    s.add_dependency(%q<RedCloth>, [">= 4.0.4"])
-  end
-  
 end
