@@ -43,9 +43,9 @@ class Annoy
     :insane   => 1000
   }.freeze
   
-  @@period = 60.freeze    # max seconds to wait
+  @@period = 3600.freeze    # max seconds to wait
   @@flavors = [:numeric, :string].freeze
-  @@skip = false          # skip questions
+  @@skip = false            # skip questions
   
   # Calling this method tells Annoy to not prompt for
   # a response. All questions will return true. 

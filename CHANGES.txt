@@ -1,5 +1,9 @@
 ANNOY, CHANGES
 
+#### 0.5.4 (2009-08-01) ###############################
+
+* CHANGE: Increased default timeout period to 3600 seconds. 
+
 #### 0.5.4 (2009-06-25) ###############################
 
 * CHANGE: Removed RedCloth dependency from gemspec.
